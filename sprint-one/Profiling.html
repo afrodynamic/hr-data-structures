@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf8">
+<html>
+  <head>
+    <style>
+      body {
+        width: 150%;
+        margin: 0;
+        padding: 0;
+      }
+      iframe {
+        width: 20%;
+        border-width: 0;
+      }
+    </style>
+    <script src="../lib/jquery/jquery.js"></script>
+    <script src="../lib/underscore/underscore.js"></script>
+    <script>
+      $(function() {
+        $.each(['functional', 'functional-shared', 'prototypal', 'pseudoclassical', 'es6'], function(i, variant) {
+          var url = window.location.href.replace('.html', 'Section.html?') + variant;
+          $('<iframe src="' + url + '" />').appendTo(document.body);
+        });
+
+        $(window).resize(function() {
+          $('iframe').height($(this).height());
+        }).trigger('resize');
+      });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
